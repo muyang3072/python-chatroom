@@ -25,6 +25,10 @@ def do_chat(s,user,name,text):
 	if text == "hide":
 		user[name][1] = True
 		return
+	elif text == "who":
+		who_list = user.keys()
+		feedback_msg = "\ncurrent online users: "+" ".join(who_list)
+		s.sendto(feedback_msg.encode(),user[name][0])
 	#发给所有人,除了自己
 	for i in user:
 		if i != name:
